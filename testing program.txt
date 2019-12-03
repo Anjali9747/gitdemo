@@ -1,0 +1,11 @@
+System.setProperty("webdriver.chrome.driver","C:\\a\\chromedriver.exe");
+	ChromeDriver chrome = new ChromeDriver();
+	//Enters thr url
+	chrome.get("https://opensource-demo.orangehrmlive.com/");
+	//Locates the username field and pass the data
+	chrome.findElement(By.name("txtUsername")).sendKeys("Admin");
+	chrome.findElement(By.name("txtPassword")).sendKeys("admin123");
+	chrome.findElement(By.name("Submit")).click();
+	chrome.findElement(By.id("welcome")).click();
+	Thread.sleep(2000);
+	chrome.findElement(By.xpath("//*[@id=\"welcome-menu\"]/ul/li[2]/a")).click();
