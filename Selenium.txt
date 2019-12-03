@@ -1,0 +1,217 @@
+Testcase Template
+
+1. Testcase id :- alphanumeric
+2. Testcase Objective :- scenario + condition
+
+gmail sign in :- scenario
+	valid un & valid pwd
+	valid un & invalid pwd
+
+to test gmail sign in with valid un & invalid pwd.
+
+3. Preconditions / Prerequisites
+4. Step Description :- instructions
+5. Test data :- data needed while testing
+6. Expected Results 
+
+Tester who prepares the testcase fills till above attributes 
+
+7. Actual Results
+8. Status(Pass/Fail)
+9. Comment/Remarks
+
+Tester who executes the testcase fills till above attributes after execution
+
+
+
+Selenium :-
+	Functional Testing tool
+	Tests only Web based applications
+	free and opensource
+	comes as a suite
+	
+Selenium IDE
+	easy to use
+	Record -N- Playback / Capture N Replay
+	available as a plugin to Firefox and Chrome browser only
+
+Selenium RC - Remote Control
+	requires scripting
+	out dated :- same origin policy
+	
+Selenium WebDriver
+   requires scripting
+   	java, python, C#, Ruby, Perl, PHP, Groovy,etc
+   overcomes the disadvantage of RC
+   supports multibrowser/crossbrowser testing
+   supports data driven testing / parameterization
+   Assertions
+
+Selenium Grid
+
+official website of selenium :
+
+	seleniumhq.org
+
+
+Demo Website : opensource-demo.orangehrmlive.com
+
+Element Locators
+
+name
+id
+	available as tag attribute
+
+xpath
+
+html tag 
+
+<tagname attrName = attrValue>
+
+
+cssSelector
+tagName
+className
+linkText
+partialLinkText
+
+Selenium Code :
+
+System.setProperty("webdriver.chrome.driver", "C:\\Users\\admin\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		//opens the browser window
+		ChromeDriver chrome = new ChromeDriver();
+		//Enters thr url
+		chrome.get("https://opensource-demo.orangehrmlive.com");
+		//Locates the username field and pass the data
+		chrome.findElement(By.name("txtUsername")).sendKeys("Admin");
+
+
+--------------------------------------------
+To use xpath as a locator
+
+1. Inspect the element
+2. Right click on the tag highlighted
+3. Copy -> Copy xpath
+	xpath will be copied.
+
+chrome.findElement(By.xpath("")).click();
+
+--------------------------------------------
+Synchronisation issue 
+
+To recover from issue :
+
+Thread.sleep(2000);
+
+Time period provided is in milliseconds.
+
+It throws an error when used.
+Hover the cursor on the above statement.
+Select Add throws declaration option
+Select Exception
+
+
+
+---------------------------------------------
+Framework : readymade architecture
+
+
+TestNG framework -Test Next Generation
+	available as a plugin to eclipse
+
+	Annotations
+		sequencing the execution
+	provides methods for Assertion
+	supports Data driven testing or Parameterization
+	can create Test Suite
+	can create Reports
+
+Identify annotations
+	begins with a '@' symbol
+	Always is followed by a method
+
+Syntax :
+
+@annotationName
+public void methodName()
+{
+
+}
+
+Annotations set the order of execution in TestNG.
+No need of main method in TestNG class
+default annotation created in TestNG class is "@Test".
+
+------------------------------------
+
+Install TestNG:
+
+1. Help -> Eclipse MarketPlace -> Type TestNG in 'Find' field -> Press Enter -> Click on Install button of TestNG option -> Proceed with the installation.
+
+OR
+
+2. Help -> Install New Software -> Click on 'Add' button -> Enter some Name -> Enter "http://beust.com/eclipse" in Location field. -> Ok button -> Select the TestNG feature -> Continue.
+
+--------------------------------------
+
+Steps to create TestNG Class
+
+1. Right click on Project or package
+2. Select TestNg
+3. Create TestNG class
+4. Provide a name and Click on Finish button.
+
+-------------------------------------------------
+
+Actions Class - selenium.interactions
+	provides the methods to handle the mouse actions
+
+	handles the mouse events
+		click()
+		dblClick()
+		moveToElement()
+		contextClick(),etc
+---------------------------------------
+
+Robot framework 
+	  the keyboard events
+
+------------------------------------------
+
+Selenium code :
+
+
+System.setProperty("webdriver.chrome.driver", "C:\\Users\\admin\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		//opens the browser window
+		ChromeDriver chrome = new ChromeDriver();
+		//Enters thr url
+		chrome.get("https://opensource-demo.orangehrmlive.com");
+		//Locates the username field and pass the data
+		chrome.findElement(By.name("txtUsername")).sendKeys("Admin");
+		chrome.findElement(By.name("txtPassword")).sendKeys("admin123");
+		chrome.findElement(By.id("btnLogin")).click();
+		Thread.sleep(2000);
+		
+		Robot r = new Robot();
+		r.keyPress(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_A);
+		r.keyRelease(KeyEvent.VK_CONTROL);
+		r.keyRelease(KeyEvent.VK_A);
+		
+		WebElement admin = chrome.findElement(By.linkText("Admin"));
+		
+		
+		Actions mouseHover = new Actions(chrome);
+		mouseHover.moveToElement(admin).build().perform();
+		
+		WebElement job = chrome.findElement(By.linkText("Job"));
+		mouseHover.moveToElement(job).build().perform();
+		
+		
+		Thread.sleep(2000);
+
+
+
+
+
+
