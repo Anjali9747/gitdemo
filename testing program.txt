@@ -9,3 +9,7 @@ System.setProperty("webdriver.chrome.driver","C:\\a\\chromedriver.exe");
 	chrome.findElement(By.id("welcome")).click();
 	Thread.sleep(2000);
 	chrome.findElement(By.xpath("//*[@id=\"welcome-menu\"]/ul/li[2]/a")).click();
+
+
+
+
